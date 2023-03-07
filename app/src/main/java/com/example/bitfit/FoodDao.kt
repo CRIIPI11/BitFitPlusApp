@@ -14,4 +14,12 @@ interface FoodDao {
     @Insert
     fun insert(Food: FoodEntity)
 
+    @Query("SELECT SUM(calories) FROM food_table")
+    fun getAvg(): Int
+
+    @Query("SELECT MIN(calories) FROM food_table")
+    fun getMin(): Int
+
+    @Query("SELECT MAX(calories) FROM food_table")
+    fun getMax(): Int
 }
